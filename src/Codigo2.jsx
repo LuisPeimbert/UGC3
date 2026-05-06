@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import MiLogo from "/logo.png";
 
 /* ─── GOOGLE FONTS ─────────────────────────────────────────────────────────── */
 const FontLink = () => (
@@ -841,9 +842,7 @@ function MoodlePage() {
 const CATEGORIAS = ["Todas","Graduaciones","Charlas UGC","Clases","Eventos académicos","Galería"];
 
 function BlogPage() {
-  const [posts, setPosts] = useState(() => {
-    try { return JSON.parse(localStorage.getItem("ugc_blog_posts") || "null") || INITIAL_POSTS; }
-    catch { return INITIAL_POSTS; }
+  const [posts, setPosts] = useState(INITIAL_POSTS);
   });
   const [filtro, setFiltro] = useState("Todas");
   const [adminOpen, setAdminOpen] = useState(false);
@@ -856,14 +855,12 @@ function BlogPage() {
     if (!newPost.titulo || !newPost.resumen) return;
     const updated = [{ ...newPost, id: Date.now(), fecha: new Date().toLocaleDateString("es-MX",{day:"numeric",month:"short",year:"numeric"}) }, ...posts];
     setPosts(updated);
-    localStorage.setItem("ugc_blog_posts", JSON.stringify(updated));
     setNewPost({ titulo:"", categoria:"Graduaciones", img:"", resumen:"", tipo:"post" });
   };
 
   const deletePost = (id) => {
     const updated = posts.filter(p=>p.id!==id);
     setPosts(updated);
-    localStorage.setItem("ugc_blog_posts", JSON.stringify(updated));
   };
 
   const visible = filtro==="Todas" ? posts : posts.filter(p=>p.categoria===filtro);
