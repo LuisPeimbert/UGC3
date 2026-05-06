@@ -843,7 +843,6 @@ const CATEGORIAS = ["Todas","Graduaciones","Charlas UGC","Clases","Eventos acad√
 
 function BlogPage() {
   const [posts, setPosts] = useState(INITIAL_POSTS);
-  });
   const [filtro, setFiltro] = useState("Todas");
   const [adminOpen, setAdminOpen] = useState(false);
   const [adminPass, setAdminPass] = useState("");
