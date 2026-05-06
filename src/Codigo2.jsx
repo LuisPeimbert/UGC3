@@ -260,7 +260,7 @@ function Navbar({ currentPage, setPage }) {
     <nav style={{ position:"fixed", top:0, left:0, right:0, zIndex:1000, background: scrolled ? "rgba(92,15,26,0.98)" : "rgba(92,15,26,0.90)", backdropFilter:"blur(14px)", borderBottom: scrolled ? "1px solid rgba(184,131,58,0.25)" : "none", transition:"all 0.35s ease" }}>
       <div style={{ maxWidth:1280, margin:"0 auto", padding:"0 32px", display:"flex", alignItems:"center", justifyContent:"space-between", height:76 }}>
         <button onClick={()=>setPage("home")} style={{ background:"none", border:"none", cursor:"pointer", display:"flex", alignItems:"center" }}>
-          <img src="./src/logo.png" alt="UGC" style={{ height:52, width:"auto" }} />
+          <img src="/logo.png" alt="UGC" style={{ height:52, width:"auto" }} />
         </button>
 
         <div className="nav-links" style={{ display:"flex", gap:2, alignItems:"center" }}>
